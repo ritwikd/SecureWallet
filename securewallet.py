@@ -69,13 +69,43 @@ while not done:
 		userInfo[accName] = [raw_input("Username:"), raw_input("Password:")]
 		dataHandler = open(expanduser("~/.securewallet"), "w+")
 		dataHandler.write(sha256(userPass).digest())
-		randomIV = os.urandom(16)
-		t = '\xbe'  
+		randomIV = urandom(16)
+		plainText = ""
+		for key in userInfo.keys():
+			plainText = plainText + '\xbe'.join([key, userInfo[key][0], userInfo[key]][1]) + '\n'
 		dataHandler.close()
 
-	elif (userInput in ["l", "list", "s", "show", "v", "view"]):
-		print "Listing elements"
-		print '\n'.join(userInfo.keys())
+	elif (userInput in ["l", "list", "s", "show"]):
+		if (len(userInfo) > 0):
+			print "Listing elements."
+			for i in range(len(userInfo.keys())):
+				print str(i+1) + ". "  + userInfo.keys()[i]
+		else:
+			print "No elements to list."
+
+	elif (userInput in ["v", "view", "d", "display"]):
+		
+		if (len(userInfo) > 0):
+			print "Listing elements."
+			for i in range(len(userInfo.keys())):
+				print str(i+1) + ". "  + userInfo.keys()[i]
+			userInput = input("Choose an item to view: ")
+			print userInfo.keys()[userInput-1]
+			print "=" * len(userInfo.keys()[userInput-1])
+			print "Username:" + userInfo[userInfo.keys()[userInput-1]][0]
+			print "Password:" + userInfo[userInfo.keys()[userInput-1]][1]
+		else:
+			print "No items to view."
+
+	elif (userInput in ["d", "delete", "r", "remove"]):
+		if (len(userInfo) > 0):
+			print "Listing elements."
+			for i in range(len(userInfo.keys())):
+				print str(i+1) + ". "  + userInfo.keys()[i]
+			userInput = input("Choose an item to view: ")
+			del(userInfo[userInfo.keys()[userInput-1]])
+		else:
+			print "No items to delete."
 	
 	else:
 		print "Unrecognized command."
