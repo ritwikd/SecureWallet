@@ -15,7 +15,8 @@ helpData = """H - Display the help Page\n\
 X,Q 	Exit from the thing\n\
 C,E		Clear the screen\n\
 A,N		Add an item to the screen\n\
-L,S 	Display the data for an item\n\
+L,S 	Display a list of items\n\
+V,P 	Display the data for an item\n\ 	
 D,R 	Delete an item
 
 """
@@ -116,7 +117,7 @@ while not done:
 		else:
 			print "No elements to list."
 
-	elif (userInput in ["v", "view", "d", "display"]):
+	elif (userInput in ["v", "view", "p", "print"]):
 		
 		if (len(userInfo) > 0):
 			print "Listing elements."
