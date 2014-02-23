@@ -1,6 +1,6 @@
 from os import listdir, urandom, system
 from os.path import expanduser
-from sys import getsizeof
+from sys import getsizeof, exit
 from Crypto.Cipher import AES
 from hashlib import sha256
 from getpass import getpass
@@ -147,4 +147,4 @@ while not done:
 	else:
 		print "Unrecognized command."
 
-exit()
+sys.exit(0)
