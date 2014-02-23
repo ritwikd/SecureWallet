@@ -8,9 +8,8 @@ Installation
 
 **With Curl**
 
- curl -s http://online.ritwikd.com/ritwik/securewallet/blob/master/install.sh | sh
+ 	curl -s http://online.ritwikd.com/ritwik/securewallet/blob/master/install.sh | sh
 
  **With Wget**
- wget http://online.ritwikd.com/ritwik/securewallet/blob/master/install.sh | sh
+ 	wget http://online.ritwikd.com/ritwik/securewallet/blob/master/install.sh | sh
 
- 
