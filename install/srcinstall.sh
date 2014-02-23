@@ -3,7 +3,7 @@ curl http://online.ritwikd.com/ritwik/securewallet/raw/master/securewallet.py -o
 echo "Finished download."
 mv securewallet.py /usr/bin/securewallet.py
 echo "Moved file to /usr/bin."
-echo 'alias securewallet="python /usr/bin/securewallet.py"' >> ~/.bash_profile
-echo 'alias securewallet="python /usr/bin/securewallet.py"' >> ~/.bashrc
-echo 'alias securewallet="python /usr/bin/securewallet.py"' >> ~/.zshrc
+echo 'alias securewallet="./usr/bin/securewallet.py"' >> ~/.bash_profile
+echo 'alias securewallet="./usr/bin/securewallet.py"' >> ~/.bashrc
+echo 'alias securewallet="./usr/bin/securewallet.py"' >> ~/.zshrc
 echo "Added the aliases. Please reopen shell."

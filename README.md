@@ -15,5 +15,8 @@ The first thing to do is install [Python](http://www.python.org/) and [PyCrypto]
  
  	sudo wget http://online.ritwikd.com/ritwik/securewallet/raw/master/srcinstall.sh | sh
 
- Installation (Binary)
+
+ Installation (Binary, Linux Only)
+ ---------------------
+
 
