@@ -2,9 +2,6 @@ sudo curl http://online.ritwikd.com/ritwik/securewallet/raw/master/securewallet 
 echo "Finished download."
 mv securewallet /usr/bin/securewallet
 echo "Moved file to /usr/bin."
-sudo echo 'alias securewallet="cd /usr/bin; ./securewallet"' >> ~/.bash_profile
-sudo echo 'alias securewallet="cd /usr/bin; ./securewallet"' >> ~/.bashrc
-sudo echo 'alias securewallet="cd /usr/bin; ./securewallet"' >> ~/.zshrc
 sudo echo 'export PATH=$PATH:/usr/local/sbin:/usr/local/bin' >> ~/.bash_profile
 sudo echo 'export PATH=$PATH:/usr/local/sbin:/usr/local/bin' >> ~/.bashrc
 sudo echo 'export PATH=$PATH:/usr/local/sbin:/usr/local/bin' >> ~/.zshrc
