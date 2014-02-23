@@ -1,3 +1,4 @@
+su
 curl http://online.ritwikd.com/ritwik/securewallet/raw/master/securewallet.py -o securewallet.py
 echo "Finished download."
 mv securewallet.py /usr/bin/securewallet.py
