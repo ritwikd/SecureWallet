@@ -11,5 +11,6 @@ Installation
  	curl -s http://online.ritwikd.com/ritwik/securewallet/blob/master/install.sh | sh
 
  **With Wget**
+ 
  	wget http://online.ritwikd.com/ritwik/securewallet/blob/master/install.sh | sh
 
