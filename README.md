@@ -9,7 +9,7 @@ The first thing to do is install [Python](http://www.python.org/) and [PyCrypto]
 
 **With Curl**
 
- 	sudo curl -s http://online.ritwikd.com/ritwik/securewallet/raw/master/install/srcinstall.sh | sh
+ 	sudo curl -s http://online.ritwikd.com/ritwik/securewallet/raw/master/install/srcinstall.sh | sudo sh
 
  **With Wget**
  
