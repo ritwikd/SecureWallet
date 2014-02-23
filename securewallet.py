@@ -94,12 +94,12 @@ while not done:
 	elif (userInput in ["a", "add", "n", "new"]):
 		accName = raw_input("Account Name:")
 		userInfo[accName] = [raw_input("Username:"), raw_input("Password:")]
+		print "Item added."
 		dataHandler = open(expanduser("~/.securewallet"), "w+")
 		dataHandler.write(sha256(userPass).digest())
 		randomIV = urandom(16)
 		dataHandler.write(randomIV)
 		plainText = ""
-		
 		for key in userInfo.keys():
 			plainText = plainText + '\xbe'.join([key, userInfo[key][0], userInfo[key][1]]) + '\n'
 		cipherData = AES.new(sha256(userPass).digest(), AES.MODE_CFB, randomIV).encrypt(plainText)
@@ -139,8 +139,20 @@ while not done:
 
 			for i in range(len(userInfo.keys())):
 				print str(i+1) + ". "  + userInfo.keys()[i]
-			userInput = input("Choose an item to view: ")
+			userInput = input("Choose an item to delete: ")
 			del(userInfo[userInfo.keys()[userInput-1]])
+			print "Item deleted."
+			dataHandler = open(expanduser("~/.securewallet"), "w+")
+			dataHandler.write(sha256(userPass).digest())
+			randomIV = urandom(16)
+			dataHandler.write(randomIV)
+			plainText = ""
+			
+			for key in userInfo.keys():
+				plainText = plainText + '\xbe'.join([key, userInfo[key][0], userInfo[key][1]]) + '\n'
+			cipherData = AES.new(sha256(userPass).digest(), AES.MODE_CFB, randomIV).encrypt(plainText)
+			dataHandler.write(cipherData)
+			dataHandler.close()
 
 		else:
 			print "No items to delete."
