@@ -1,5 +1,6 @@
 from os import listdir, urandom, system
 from os.path import expanduser
+from sys import getsizeof
 from Crypto.Cipher import AES
 from hashlib import sha256
 from getpass import getpass
@@ -11,18 +12,19 @@ hashedPass = ""
 accName = ""
 randomIV = ""
 helpData = """H - Display the help Page\n\
-X - Exit from the thing\n\
-C - Clear the screen\n\
-A - Add an item to the screen\n\
+X,Q 	Exit from the thing\n\
+C,E		Clear the screen\n\
+A,N		Add an item to the screen\n\
+L,S 	Display the data for an item\n\
+D,R 	Delete an item
+
 """
 
 
 if (".securewallet" in listdir(expanduser("~"))):
-	dataHandler = open(expanduser("~/.securewallet"), "r")
-	
+	dataHandler = open(expanduser("~/.securewallet"), "rb")
 	hashedPass = dataHandler.read(32)
-	dataHandler.close()
-	ind = 0;abu
+	ind = 0;
 	while (userPass != hashedPass):
 		if (ind > 2):
 			print "You have entered an incorrect password 3 times."
@@ -31,16 +33,20 @@ if (".securewallet" in listdir(expanduser("~"))):
 			userPass = getpass("Enter your password (" + str(3-ind) + " tries):")
 			if (sha256(userPass).digest() == hashedPass):	
 				print "Logged in successfully."
-				dataHandler = open(expanduser("~/.securewallet"), "w+")
 				randomIV = dataHandler.read(16)
 				cipherData = dataHandler.read()
 				plainText = AES.new(sha256(userPass).digest(), AES.MODE_CFB, randomIV).decrypt(cipherData)
-				for line in plainText.split('\n'):
-					print spl
+				for line in plainText.split('\n')[:-1]:
 					splLine = line.split('\xbe')
 					userInfo[splLine[0]] = splLine[1:]
 				dataHandler.close()
-				print "Loaded elements."
+				if (len(userInfo) > 0):
+					print "Loaded elements successfully."
+					print "Listing elements."
+					for i in range(len(userInfo.keys())):
+						print str(i+1) + ". "  + userInfo.keys()[i]		
+				else:
+					print "No account data in file."			
 				break
 			else:
 				print "Incorrect password."
@@ -66,11 +72,11 @@ while not done:
 	if (userInput in ["h", "help"]):
 		print helpData
 
-	elif (userInput in ["x", "exit"]):
+	elif (userInput in ["x", "exit", "q", "quit"]):
 		print "Exiting program."
 		done = True
 
-	elif (userInput in ["c", "clear"]):
+	elif (userInput in ["c", "clear", "e", "empty"]):
 		system("clear")
 
 	elif (userInput in ["a", "add", "n", "new"]):
@@ -79,9 +85,10 @@ while not done:
 		dataHandler = open(expanduser("~/.securewallet"), "w+")
 		dataHandler.write(sha256(userPass).digest())
 		randomIV = urandom(16)
+		dataHandler.write(randomIV)
 		plainText = ""
 		for key in userInfo.keys():
-			plainText = plainText + '\xbe'.join([key, userInfo[key][0], userInfo[key]][1]) + '\n'
+			plainText = plainText + '\xbe'.join([key, userInfo[key][0], userInfo[key][1]]) + '\n'
 		cipherData = AES.new(sha256(userPass).digest(), AES.MODE_CFB, randomIV).encrypt(plainText)
 		dataHandler.write(cipherData)
 		dataHandler.close()
