@@ -22,17 +22,26 @@ if (".securewallet" in listdir(expanduser("~"))):
 	
 	hashedPass = dataHandler.read(32)
 	dataHandler.close()
-	ind = 0;
+	ind = 0;abu
 	while (userPass != hashedPass):
 		if (ind > 2):
 			print "You have entered an incorrect password 3 times."
 			exit()
 		else:
 			userPass = getpass("Enter your password (" + str(3-ind) + " tries):")
-			if (sha256(userPass).digest() == hashedPass):
-				break
+			if (sha256(userPass).digest() == hashedPass):	
 				print "Logged in successfully."
-				system("clear")
+				dataHandler = open(expanduser("~/.securewallet"), "w+")
+				randomIV = dataHandler.read(16)
+				cipherData = dataHandler.read()
+				plainText = AES.new(sha256(userPass).digest(), AES.MODE_CFB, randomIV).decrypt(cipherData)
+				for line in plainText.split('\n'):
+					print spl
+					splLine = line.split('\xbe')
+					userInfo[splLine[0]] = splLine[1:]
+				dataHandler.close()
+				print "Loaded elements."
+				break
 			else:
 				print "Incorrect password."
 				ind += 1
@@ -73,6 +82,8 @@ while not done:
 		plainText = ""
 		for key in userInfo.keys():
 			plainText = plainText + '\xbe'.join([key, userInfo[key][0], userInfo[key]][1]) + '\n'
+		cipherData = AES.new(sha256(userPass).digest(), AES.MODE_CFB, randomIV).encrypt(plainText)
+		dataHandler.write(cipherData)
 		dataHandler.close()
 
 	elif (userInput in ["l", "list", "s", "show"]):
