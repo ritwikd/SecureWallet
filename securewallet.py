@@ -5,6 +5,7 @@ from Crypto.Cipher import AES
 from hashlib import sha256
 from getpass import getpass
 
+system("cd -")
 done = False
 userPass = ""
 userInfo = {}
