@@ -7,23 +7,11 @@ Installation (From Source, Mac\Linux)
 --------------------------
 The first thing to do is install [Python](http://www.python.org/) and [PyCrypto](https://pypi.python.org/pypi/pycrypto/). 
 
-**With Curl**
-
- 	sudo curl -s http://online.ritwikd.com/ritwik/securewallet/raw/master/install/srcinstall.sh | sudo sh
-
- **With Wget**
- 
- 	sudo wget http://online.ritwikd.com/ritwik/securewallet/raw/master/install/srcinstall.sh | sudo sh
+ 	curl -s http://online.ritwikd.com/ritwik/securewallet/raw/master/install/srcinstall.sh | sudo sh
 
 
 Installation (Binary, Linux Only)
 ---------------------------------
 
-**With Curl**
-
- 	sudo curl -s http://online.ritwikd.com/ritwik/securewallet/raw/master/install/install.sh | sudo sh
-
- **With Wget**
- 
- 	sudo wget http://online.ritwikd.com/ritwik/securewallet/raw/master/install/install.sh | sudo sh
+ 	curl -s http://online.ritwikd.com/ritwik/securewallet/raw/master/install/install.sh | sudo sh
 
