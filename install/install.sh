@@ -9,5 +9,5 @@ sudo echo 'sudo export PATH=$PATH:/usr/local/sbin:/usr/local/bin' >> ~/.bash_pro
 sudo echo 'sudo export PATH=$PATH:/usr/local/sbin:/usr/local/bin' >> ~/.bashrc
 sudo echo 'sudo export PATH=$PATH:/usr/local/sbin:/usr/local/bin' >> ~/.zshrc
 sudo chmod +x /usr/bin/securewallet
-sudo export PATH=$PATH:/usr/local/sbin:/usr/local/bin
+export PATH=$PATH:/usr/local/sbin:/usr/local/bin
 echo "Added the aliases. Please reopen shell."
