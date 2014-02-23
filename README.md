@@ -1,16 +1,19 @@
 securewallet
 ============
 
-securewallet is a simple command line password manager. It uses 256-bit AES encryption to protect your data, and is completely open source, so you know what's going on. Feel free to download and edit a copy of the project - send me a mail at ritzymail@gmail.com and I'll probably add your changes if they make a difference in the app. The app works on Linux and on Mac (untested) and requires Python and PyCrypto. Feel free to change anything if you want. I will also be making binaries soon.
+securewallet is a simple command line password manager. It uses 256-bit AES encryption to protect your data, and is completely open source, so you know what's going on. Feel free to download and edit a copy of the project - send me a mail at ritzymail@gmail.com and I'll probably add your changes if they make a difference in the app. The app works on Linux and on Mac (untested) and requires Python and PyCrypto. Feel free to change anything if you want. 
 
-Installation
-------------
+Installation (From Source, Mac\Linux)
+--------------------------
+The first thing to do is install [Python](http://www.python.org/) and [PyCrypto](https://pypi.python.org/pypi/pycrypto/). 
 
 **With Curl**
 
- 	sudo curl -s http://online.ritwikd.com/ritwik/securewallet/raw/master/install.sh | sh
+ 	sudo curl -s http://online.ritwikd.com/ritwik/securewallet/raw/master/srcinstall.sh | sh
 
  **With Wget**
  
- 	sudo wget http://online.ritwikd.com/ritwik/securewallet/raw/master/install.sh | sh
+ 	sudo wget http://online.ritwikd.com/ritwik/securewallet/raw/master/srcinstall.sh | sh
+
+ Installation (Binary)
 
