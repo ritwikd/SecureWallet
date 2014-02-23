@@ -160,4 +160,4 @@ while not done:
 	else:
 		print "Unrecognized command."
 
-sys.exit(0)
+exit(0)
