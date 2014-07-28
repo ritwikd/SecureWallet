@@ -1,4 +1,4 @@
-sudo curl http://online.ritwikd.com/ritwik/securewallet/raw/master/securewallet.py -o securewallet.py
+sudo curl https://raw.githubusercontent.com/ritwikd/SecureWallet/master/securewallet.py -o securewallet.py
 echo "Finished download."
 mv securewallet.py /usr/bin/securewallet.py
 echo "Moved file to /usr/bin."
