@@ -1,4 +1,4 @@
-sudo curl http://online.ritwikd.com/ritwik/securewallet/raw/master/securewallet -o /usr/bin/securewallet
+sudo curl https://raw.githubusercontent.com/ritwikd/SecureWallet/master/securewallet -o /usr/bin/securewallet
 echo "Finished download."
 sudo echo 'export PATH=$PATH:/usr/local/sbin:/usr/local/bin' >> ~/.bash_profile
 sudo echo 'export PATH=$PATH:/usr/local/sbin:/usr/local/bin' >> ~/.bashrc
